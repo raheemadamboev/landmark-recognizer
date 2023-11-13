@@ -13,9 +13,10 @@ class LandmarkClassifier(
     private val context: Context
 ) {
 
-    companion object {
-        private const val THRESHOLD = 0.5F
-        private const val MAX_RESULT = 3
+    private companion object {
+        const val THRESHOLD = 0.5F
+        const val MAX_RESULT = 3
+        const val MODEL_PATH = "model/landmark-recognizer.tflite"
     }
 
     private val classifier: ImageClassifier by lazy {
@@ -27,7 +28,7 @@ class LandmarkClassifier(
             .setScoreThreshold(THRESHOLD)
             .setMaxResults(MAX_RESULT)
             .build()
-        return@lazy ImageClassifier.createFromFileAndOptions(context, "model/landmark-recognizer.tflite", options)
+        return@lazy ImageClassifier.createFromFileAndOptions(context, MODEL_PATH, options)
     }
 
     private fun getOrientationFromRotation(rotation: Int): ImageProcessingOptions.Orientation {
