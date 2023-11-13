@@ -1,8 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -68,18 +66,11 @@ dependencies {
     // compose lifecycle
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
 
-    // compose viewmodel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-
-    // compose hilt navigation
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-
     // core
     implementation("androidx.core:core-ktx:1.12.0")
 
-    // hilt
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    ksp("com.google.dagger:hilt-compiler:2.48.1")
+    // collections
+    implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6")
 
     // camerax
     implementation("androidx.camera:camera-core:1.3.0")
